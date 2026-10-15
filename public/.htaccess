@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Arquivos e pastas existentes são servidos normalmente
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Demais rotas (ex.: /noticias/:id) vão para o React Router
+  RewriteRule ^ index.html [L]
+</IfModule>
