@@ -2,6 +2,13 @@ import { Link, useParams } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { news } from "@/data/news";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 
 const NewsDetail = () => {
@@ -75,11 +82,31 @@ const NewsDetail = () => {
       <section className="section-padding bg-background">
         <div className="container-editorial max-w-3xl">
           <div className="mb-10 overflow-hidden">
-            <img
-              src={article.coverImage}
-              alt={article.title}
-              className="w-full h-auto object-cover"
-            />
+            {article.gallery && article.gallery.length > 1 ? (
+              <Carousel opts={{ loop: true }} className="relative">
+                <CarouselContent>
+                  {article.gallery.map((image, index) => (
+                    <CarouselItem key={index}>
+                      <div className="aspect-[4/3] bg-deep-blue flex items-center justify-center">
+                        <img
+                          src={image}
+                          alt={`${article.title} — foto ${index + 1}`}
+                          className="max-w-full max-h-full object-contain"
+                        />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-3" />
+                <CarouselNext className="right-3" />
+              </Carousel>
+            ) : (
+              <img
+                src={article.coverImage}
+                alt={article.title}
+                className="w-full h-auto object-cover"
+              />
+            )}
 
             {article.imageCaption && (
               <p className="text-xs text-muted-foreground mt-3 font-sans">

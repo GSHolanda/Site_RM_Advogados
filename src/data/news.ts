@@ -6,6 +6,7 @@ export interface NewsItem {
   date: string;
   category: "Institucional" | "Internacional" | "Eventos" | "Publicações";
   coverImage: string;
+  gallery?: string[];
   author?: string;
   imageCaption?: string;
 }
@@ -16,7 +17,10 @@ import noticia3 from "@/assets/news/noticias/noticia3.jpeg";
 import noticia4 from "@/assets/news/noticias/noticia4.jpeg";
 import noticia5 from "@/assets/news/noticias/noticia5.jpeg";
 import novaMateria from "@/assets/news/noticias/nova-materia.jpeg";
-import tritucapPetrotec from "@/assets/news/noticias/tritucap-petrotec-parceria.jpg";
+import tritucapPetrotec1 from "@/assets/news/noticias/tritucap-petrotec-1.jpg";
+import tritucapPetrotec2 from "@/assets/news/noticias/tritucap-petrotec-2.jpg";
+import tritucapPetrotec3 from "@/assets/news/noticias/tritucap-petrotec-3.jpg";
+import tritucapPetrotec4 from "@/assets/news/noticias/tritucap-petrotec-4.jpg";
 
 export const news: NewsItem[] = [
   {
@@ -26,7 +30,8 @@ export const news: NewsItem[] = [
       "Index Participações e RM Advogados Associados lançam projeto que integra inteligência de negócios, governança corporativa, compliance e assessoria jurídica especializada para ampliar a competitividade das empresas nos mercados público e privado.",
     date: "2026-06-02",
     category: "Institucional",
-    coverImage: tritucapPetrotec,
+    coverImage: tritucapPetrotec1,
+    gallery: [tritucapPetrotec1, tritucapPetrotec2, tritucapPetrotec3, tritucapPetrotec4],
     author: "Institucional",
     imageCaption:
       "Parceria entre Index Participações e RM Advogados Associados reforça governança e expansão da Tritucap e Petrotec.",
